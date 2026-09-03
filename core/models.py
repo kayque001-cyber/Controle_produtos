@@ -34,7 +34,6 @@ class category(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=100,verbose_name='Titulo')
-    name = models.CharField(max_length=100,verbose_name='Titulo')
     brand = models.ForeignKey(Brand,on_delete=models.CASCADE,verbose_name='Marca')
     category = models.ForeignKey(category,on_delete=models.PROTECT,related_name='products',verbose_name='Categoria')
     is_active = models.BooleanField(default=True,verbose_name='Ativo')
