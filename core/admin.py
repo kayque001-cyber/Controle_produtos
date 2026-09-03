@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Brand, category, Product
+from .models import Brand, Category, Product
 
 @admin.register(Brand)
 class BrandAdmin(admin.ModelAdmin):
@@ -9,7 +9,7 @@ class BrandAdmin(admin.ModelAdmin):
 
 
 
-@admin.register(category)
+@admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'is_active', 'description')
     search_fields = ('name', 'description')

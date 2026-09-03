@@ -16,7 +16,7 @@ class Brand(models.Model):
         return self.name
     
 
-class category(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=100,verbose_name='Nome')
     is_active = models.BooleanField(default=True,verbose_name='Ativo')
     description = models.TextField(null=True,blank=True,verbose_name='Descrição')
@@ -35,7 +35,7 @@ class category(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=100,verbose_name='Titulo')
     brand = models.ForeignKey(Brand,on_delete=models.CASCADE,verbose_name='Marca')
-    category = models.ForeignKey(category,on_delete=models.PROTECT,related_name='products',verbose_name='Categoria')
+    category = models.ForeignKey('Category',on_delete=models.PROTECT,related_name='products',verbose_name='Categoria')
     is_active = models.BooleanField(default=True,verbose_name='Ativo')
     description = models.TextField(null=True,blank=True,verbose_name='Descrição')
     created_at = models.DateTimeField(auto_now_add=True,verbose_name='Criado em')
